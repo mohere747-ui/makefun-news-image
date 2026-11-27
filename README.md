@@ -2,9 +2,9 @@
 
 An editorial poster summarising six front-page stories of the day in a dark-navy, six-card layout. `render.py` draws the whole picture from scratch with Python and Pillow (no image assets); `main.ts` copies the finished PNG into the bounty's output directory.
 
-![make.fun bounty](https://make.fun/badge/news-image-20261126.svg)
-![make.fun rank](https://make.fun/badge/news-image-20261126/mohere747-ui/makefun-news-image/rank.svg)
-![make.fun reward](https://make.fun/badge/news-image-20261126/mohere747-ui/makefun-news-image/reward.svg)
+[![make.fun bounty](https://make.fun/badge/news-image-20261126.svg)](https://make.fun/bounty/news-image-20261126)
+[![make.fun rank](https://make.fun/badge/news-image-20261126/mohere747-ui/makefun-news-image/rank.svg)](https://make.fun/bounty/news-image-20261126/leaderboard)
+[![make.fun reward](https://make.fun/badge/news-image-20261126/mohere747-ui/makefun-news-image/reward.svg)](https://make.fun/bounty/news-image-20261126)
 
 Bounty: https://make.fun/bounty/news-image-20261126
 
