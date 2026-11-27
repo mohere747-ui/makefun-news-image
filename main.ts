@@ -1,9 +1,12 @@
-import { copyFileSync, mkdirSync } from 'node:fs';
-import { join } from 'node:path';
+// The committed poster is copied byte-for-byte to the output directory.
+// Copy the rendered poster into the directory the grader reads.
+const { mkdirSync, copyFileSync } = require("node:fs");
+const { join } = require("node:path");
 
-// The committed poster is the entry; the grader reads the copied bytes.
-// The poster is rendered by render.py and copied here at run time.
-const out = process.env.MAKEFUN_OUTPUT_DIR ?? '/output';
-mkdirSync(out, { recursive: true });
-copyFileSync(new URL('./entry.png', import.meta.url), join(out, 'entry.png'));
-console.log(`copied entry.png to ${join(out, 'entry.png')}`);
+const outputDir = process.env.MAKEFUN_OUTPUT_DIR || "/output";
+const source = join(__dirname, "entry.png");
+const destination = join(outputDir, "entry.png");
+
+mkdirSync(outputDir, { recursive: true });
+copyFileSync(source, destination);
+console.log(`copied ${source} to ${destination}`);

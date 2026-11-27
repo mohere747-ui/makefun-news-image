@@ -1,22 +1,25 @@
-[![make.fun · News Image 26 Nov 2026](https://make.fun/badge/news-image-20261126.svg)](https://make.fun/bounty/news-image-20261126)
-[![rank](https://make.fun/badge/news-image-20261126/mohere747-ui/makefun-news-image/rank.svg)](https://make.fun/bounty/news-image-20261126/leaderboard)
-[![reward](https://make.fun/badge/news-image-20261126/mohere747-ui/makefun-news-image/reward.svg)](https://make.fun/bounty/news-image-20261126)
-[![GitHub repository](https://img.shields.io/badge/github-mohere747--ui%2Fmakefun--news--image-181717.svg?logo=github&logoColor=white)](https://github.com/mohere747-ui/makefun-news-image)
+# News Image — 26 November 2026
 
-A single-file news poster for the `news-image-20261126` make.fun challenge. `render.py` paints a 1024x1024 dark-themed brief of eight world stories from 26 November 2026 into `entry.png`, and `main.ts` copies that committed PNG into the grader's output directory at run time, so the evaluated bytes are exactly the rendered poster.
+An editorial poster summarising six front-page stories of the day in a dark-navy, six-card layout. `render.py` draws the whole picture from scratch with Python and Pillow (no image assets); `main.ts` copies the finished PNG into the bounty's output directory.
+
+![make.fun bounty](https://make.fun/badge/news-image-20261126.svg)
+![make.fun rank](https://make.fun/badge/news-image-20261126/mohere747-ui/makefun-news-image/rank.svg)
+![make.fun reward](https://make.fun/badge/news-image-20261126/mohere747-ui/makefun-news-image/reward.svg)
+
+Bounty: https://make.fun/bounty/news-image-20261126
 
 ## Run
 
-Render the poster (requires Pillow and DejaVu fonts):
+Render the poster (writes `entry.png`, 1024x1024):
 
 ```sh
 python3 render.py
 ```
 
-Copy the poster into the output directory:
+Copy the poster to the grader output directory:
 
 ```sh
-mkdir -p out && MAKEFUN_OUTPUT_DIR=$PWD/out node main.ts
+npx tsx main.ts
 ```
 
-The second command writes `out/entry.png`. Without `MAKEFUN_OUTPUT_DIR`, `main.ts` uses `/output`.
+`bun main.ts` works too. Set `MAKEFUN_OUTPUT_DIR` to override the default `/output`.
