@@ -1,12 +1,19 @@
-// The committed poster is copied byte-for-byte to the output directory.
-// Copy the rendered poster into the directory the grader reads.
-const { mkdirSync, copyFileSync } = require("node:fs");
-const { join } = require("node:path");
+// The broadsheet poster is copied byte-for-byte to the grader's output.
+'use strict';
 
-const outputDir = process.env.MAKEFUN_OUTPUT_DIR || "/output";
-const source = join(__dirname, "entry.png");
-const destination = join(outputDir, "entry.png");
+const fs = require('node:fs');
+const path = require('node:path');
 
-mkdirSync(outputDir, { recursive: true });
-copyFileSync(source, destination);
-console.log(`copied ${source} to ${destination}`);
+// entry.png lives in the repository root, next to this script.
+const repoRoot = __dirname;
+const source = path.join(repoRoot, 'entry.png');
+
+// Override with MAKEFUN_OUTPUT_DIR; fall back to /output.
+const outputDir = path.resolve(process.env.MAKEFUN_OUTPUT_DIR || '/output');
+const destination = path.join(outputDir, 'entry.png');
+
+fs.mkdirSync(outputDir, { recursive: true });
+fs.copyFileSync(source, destination);
+
+console.log(`source: ${source}`);
+console.log(`destination: ${destination}`);

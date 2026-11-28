@@ -1,25 +1,31 @@
-# News Image — 26 November 2026
+# make.fun — news-image (26 November 2026)
 
-An editorial poster summarising six front-page stories of the day in a dark-navy, six-card layout. `render.py` draws the whole picture from scratch with Python and Pillow (no image assets); `main.ts` copies the finished PNG into the bounty's output directory.
+[![make.fun](https://make.fun/badge/news-image-20261126.svg)](https://make.fun/bounty/news-image-20261126)
+[![rank](https://make.fun/badge/news-image-20261126/mohere747-ui/makefun-news-image/rank.svg)](https://make.fun/bounty/news-image-20261126/leaderboard)
+[![reward](https://make.fun/badge/news-image-20261126/mohere747-ui/makefun-news-image/reward.svg)](https://make.fun/bounty/news-image-20261126)
 
-[![make.fun bounty](https://make.fun/badge/news-image-20261126.svg)](https://make.fun/bounty/news-image-20261126)
-[![make.fun rank](https://make.fun/badge/news-image-20261126/mohere747-ui/makefun-news-image/rank.svg)](https://make.fun/bounty/news-image-20261126/leaderboard)
-[![make.fun reward](https://make.fun/badge/news-image-20261126/mohere747-ui/makefun-news-image/reward.svg)](https://make.fun/bounty/news-image-20261126)
+A broadsheet-style world news poster summarising 38 stories from 26 November 2026.
+The 1600×1200 image is drawn entirely with Python and Pillow: masthead, deck,
+metric strip, region band with a UTC timeline, three illustrated hero cards,
+eight smaller illustrated cards, a world map with numbered pins, and a
+three-column story index. Headlines are auto-fitted so nothing clips, and the
+script verifies that no text is clipped or overlapping before saving `entry.png`.
 
-Bounty: https://make.fun/bounty/news-image-20261126
+Contested claims are attributed (`Iran claims`, `Ukraine said`, `officials say`)
+and speculation is not presented as fact.
+
+## Requirements
+
+- Python 3
+- Pillow (`pip install Pillow`)
+- DejaVu fonts (bundled with most Linux distributions)
 
 ## Run
 
-Render the poster (writes `entry.png`, 1024x1024):
-
 ```sh
+cd ~/workspace/makefun/news-image
 python3 render.py
 ```
 
-Copy the poster to the grader output directory:
-
-```sh
-npx tsx main.ts
-```
-
-`bun main.ts` works too. Set `MAKEFUN_OUTPUT_DIR` to override the default `/output`.
+This writes `entry.png` in the same directory and prints the image size, byte
+count and verification result.
